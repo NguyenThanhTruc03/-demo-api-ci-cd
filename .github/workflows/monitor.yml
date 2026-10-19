@@ -1,6 +1,7 @@
 name: Production Monitor
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0 * * * *'  # Chạy mỗi 1 giờ
 
@@ -18,6 +19,5 @@ jobs:
         run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
 
       - name: Chạy kịch bản Monitor trực tiếp từ Cloud
-        # Thay ID của Collection Monitor và ID của Environment vào đây
         run: |
-          postman collection run "59052597-80617524-3187-40dc-8619-99ad411e112c" -e "ID_THẬT_CỦA_ENVIRONMENT"
+          postman collection run "59052597-80617524-3187-40dc-8619-99ad411e112c"
